@@ -31,6 +31,9 @@ const TicketsListItem = (props) => (
     </div>
 )
 
+const allTickets = (props) =>{ return props.tickets.all.tickets.reverse() }
+
+// TODO: When some element of the list is clicked, it should raise its info window.
 const TicketsList = (props) =>{
     return(
         
@@ -45,7 +48,7 @@ const TicketsList = (props) =>{
             </div>
         : props.tickets.status === 'TICKETS_LOADED' ?
             <div style={{overflowY: 'scroll', height: 'calc(100vh - 126px)'}}> {
-                props.tickets.all.tickets.map(
+                allTickets(props).map(
                     (ticket) => (    
                         <TicketsListItem key={ticket._id} ticket={ticket} />
                     )
